@@ -1,0 +1,119 @@
+@mixin border-1px($color)
+  position: relative
+  &:after
+    display: block
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    border-top: 1px solid $color
+    content: ' '
+
+@mixin border-none()
+  &:after
+    display: none
+
+@mixin bg-image($url)
+  background-image: url($url + "@2x.png")
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
+    background-image: url($url + "@3x.png")
+
+.details
+  padding-bottom: 49px
+  .tab
+    z-index: 99
+    display: flex
+    width: 100%
+    height: 44px
+    line-height: 44px
+    background-color: #fff
+    box-shadow: 0 0 10px rgba(0, 0, 0, .08)
+    &.fix
+      position: fixed
+      top: 0
+      left: 0
+    .tab_item
+      flex: 1
+      text-align: center
+      color: #000
+      font-size: 15px
+      &.active
+        color: #ff2d50
+
+.top
+  .top_img
+    position: relative
+    padding-top: 450/750*100%
+    img
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+  .top_info
+    padding: 37.5px 17px 29px
+    background-color: #fff
+    h2
+      margin-bottom: 23px
+      line-height: 20px
+      font-size: 20px
+      font-weight: bold
+      color: #000
+    h3
+      margin-bottom: 23px
+      font-size: 15px
+      line-height: 15px
+      color: #666
+    .money
+      font-size: 18px
+      line-height: 18px
+      color: #ff2d50
+  .bot_info
+    padding: 29px 17px
+    background-color: #fafafa
+    .row
+      padding-left: 3em
+      font-size: 15px
+      line-height: 25px
+      color: #666
+      &:last-child
+        margin-top: 13px
+      em
+        float: left
+        margin-left: -3em
+        font-style: normal
+      .icon
+        display: block
+        float: left
+        margin-top: 4px
+        margin-right: 7px
+        background-size: 100% 100%
+        &.icon_live
+          @include bg-image('/new/course/img/icon_live')
+          width: 16px
+          height: 15px
+        &.icon_medal
+          @include bg-image('/new/course/img/icon_medal')
+          width: 15px
+          height: 17px
+        &.icon_course
+          @include bg-image('/new/course/img/icon_course')
+          width: 14px
+          height: 16px
+.fixedbtn
+  position: fixed
+  left: 0
+  bottom: 0
+  width: 100%
+  display: flex
+  height: 49px
+  line-height: 49px
+  font-size: 18px
+  .item
+    flex: 1
+    text-align: center
+    color: #000
+    background-color: #fff
+    &:last-child
+      color: #fff
+      background-color: #000
